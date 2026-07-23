@@ -1,0 +1,547 @@
+/* KNOWLEDGE BASE COMPONENT - PIXEL-PERFECT STYLING */
+
+.kb-container {
+  display: flex;
+  height: calc(100vh - 110px);
+  min-height: 720px;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #1A1A1A;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+/* Dark Mode Theme Support */
+.kb-container.dark {
+  background-color: #141519;
+  color: #F8FAFC;
+  box-shadow: none;
+}
+
+/* 1. LEFTMOST ICON RAIL */
+.kb-icon-rail {
+  width: 64px;
+  background-color: #FFFFFF;
+  border-right: 1px solid #ECECEC;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  gap: 24px;
+}
+
+.kb-container.dark .kb-icon-rail {
+  background-color: #141519;
+  border-right-color: rgba(255, 255, 255, 0.05);
+}
+
+.kb-logo {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+}
+
+.kb-container.dark .kb-logo {
+  color: #FFFFFF;
+}
+
+.kb-rail-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+}
+
+.kb-rail-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.kb-rail-item.active {
+  background-color: #ECECEC;
+  color: #111111;
+}
+
+.kb-container.dark .kb-rail-item {
+  color: #8E95A5;
+}
+
+.kb-container.dark .kb-rail-item.active {
+  background-color: #24262E;
+  color: #FFFFFF;
+}
+
+/* 2. SIDEBAR TREE VIEW */
+.kb-sidebar {
+  width: 280px;
+  background-color: #FAFAFA;
+  border-right: 1px solid #ECECEC;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.kb-container.dark .kb-sidebar {
+  background-color: #181A20;
+  border-right-color: rgba(255, 255, 255, 0.05);
+}
+
+.kb-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.kb-sidebar-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.kb-container.dark .kb-sidebar-title {
+  color: #F8FAFC;
+}
+
+.kb-sidebar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kb-action-icon {
+  background: none;
+  border: none;
+  color: #666666;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kb-action-icon:hover {
+  background-color: #EAEAEA;
+}
+
+.kb-container.dark .kb-action-icon:hover {
+  background-color: #24262E;
+  color: #FFFFFF;
+}
+
+/* Search input */
+.kb-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.kb-search-input {
+  width: 100%;
+  padding: 8px 12px 8px 34px;
+  border-radius: 8px;
+  border: 1px solid #E2E2E2;
+  background-color: #FFFFFF;
+  font-size: 13px;
+  color: #1A1A1A;
+  outline: none;
+}
+
+.kb-container.dark .kb-search-input {
+  background-color: #121316;
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #F8FAFC;
+}
+
+.kb-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999999;
+}
+
+/* Folders / Tags Pill Switcher */
+.kb-tabs-pill {
+  display: flex;
+  background-color: #ECECEC;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.kb-container.dark .kb-tabs-pill {
+  background-color: #121316;
+}
+
+.kb-tab-btn {
+  flex: 1;
+  padding: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: #666666;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.kb-tab-btn.active {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.kb-container.dark .kb-tab-btn {
+  color: #8E95A5;
+}
+
+.kb-container.dark .kb-tab-btn.active {
+  background-color: #24262E;
+  color: #FFFFFF;
+}
+
+/* Tree Navigation List */
+.kb-tree-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.kb-tree-node {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #333333;
+  transition: background-color 0.15s ease;
+}
+
+.kb-container.dark .kb-tree-node {
+  color: #CCCCCC;
+}
+
+.kb-tree-node:hover {
+  background-color: #F0F0F0;
+}
+
+.kb-container.dark .kb-tree-node:hover {
+  background-color: #22242B;
+}
+
+.kb-tree-node.selected {
+  background-color: #ECECEC;
+  color: #111111;
+  font-weight: 500;
+}
+
+.kb-container.dark .kb-tree-node.selected {
+  background-color: #262933;
+  color: #FFFFFF;
+}
+
+.kb-node-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kb-node-badge {
+  font-size: 11px;
+  color: #777777;
+  background-color: #E2E2E2;
+  padding: 1px 7px;
+  border-radius: 6px;
+}
+
+.kb-container.dark .kb-node-badge {
+  background-color: #121316;
+  color: #8E95A5;
+}
+
+/* Tree indent guides */
+.kb-sub-tree {
+  margin-left: 20px;
+  border-left: 1px solid #E2E2E2;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kb-container.dark .kb-sub-tree {
+  border-left-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 3. MAIN CONTENT AREA */
+.kb-main-content {
+  flex: 1;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 32px;
+  gap: 28px;
+  overflow-y: auto;
+}
+
+.kb-container.dark .kb-main-content {
+  background-color: #141519;
+}
+
+.kb-main-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kb-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1A1A1A;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.kb-container.dark .kb-dropdown-btn {
+  color: #F8FAFC;
+}
+
+.kb-section-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #111111;
+  margin-bottom: 16px;
+}
+
+.kb-container.dark .kb-section-title {
+  color: #F8FAFC;
+}
+
+/* Folders Grid Cards */
+.kb-folders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.kb-folder-card {
+  background-color: #EDEDED;
+  border-radius: 16px;
+  padding: 20px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  min-height: 190px;
+}
+
+.kb-container.dark .kb-folder-card {
+  background-color: #1D1F26;
+}
+
+.kb-folder-card:hover {
+  transform: translateY(-2px);
+  background-color: #E2E2E2;
+}
+
+.kb-container.dark .kb-folder-card:hover {
+  background-color: #242730;
+}
+
+/* Folder visual graphic */
+.kb-folder-graphic-wrapper {
+  position: relative;
+  width: 120px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* Main dark folder shape */
+.kb-folder-body {
+  width: 110px;
+  height: 76px;
+  background-color: #4A4D55;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.kb-container.dark .kb-folder-body {
+  background-color: #2A2D36;
+}
+
+/* Papers sticking out top */
+.kb-folder-papers {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 40px;
+  background-color: #FFFFFF;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.06);
+  border: 1px solid #E2E2E2;
+}
+
+.kb-container.dark .kb-folder-papers {
+  background-color: #121316;
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* App badge circles on folder */
+.kb-folder-apps {
+  display: flex;
+  align-items: center;
+  gap: -4px;
+}
+
+.kb-app-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 500;
+  border: 1px solid #DDD;
+  margin-right: -4px;
+}
+
+.kb-container.dark .kb-app-badge {
+  background-color: #1E2026;
+  border-color: #333;
+  color: #FFF;
+}
+
+.kb-folder-meta {
+  text-align: center;
+}
+
+.kb-folder-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111111;
+  margin-bottom: 2px;
+}
+
+.kb-container.dark .kb-folder-name {
+  color: #F8FAFC;
+}
+
+.kb-folder-count {
+  font-size: 12px;
+  color: #777777;
+}
+
+.kb-container.dark .kb-folder-count {
+  color: #8E95A5;
+}
+
+/* Files Table */
+.kb-files-table-container {
+  background-color: #FAFAFA;
+  border-radius: 16px;
+  padding: 12px;
+  border: 1px solid #EAEAEA;
+}
+
+.kb-container.dark .kb-files-table-container {
+  background-color: #181A20;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.kb-files-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.kb-files-table th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  color: #777777;
+  padding: 10px 16px;
+  border-bottom: 1px solid #ECECEC;
+}
+
+.kb-container.dark .kb-files-table th {
+  color: #8E95A5;
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.kb-files-table td {
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #222222;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.kb-container.dark .kb-files-table td {
+  color: #F8FAFC;
+  border-bottom-color: rgba(255, 255, 255, 0.03);
+}
+
+.kb-files-table tr:last-child td {
+  border-bottom: none;
+}
+
+.kb-file-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kb-user-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kb-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #DDD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #333;
+}
