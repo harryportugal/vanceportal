@@ -158,7 +158,7 @@ export default function Header() {
             fontWeight: 500,
             border: '1px solid var(--border-input)'
           }}>
-            {currentUserRole === 'admin' ? 'VG' : 'LM'}
+            {currentUserRole === 'admin' ? 'VG' : 'HP'}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '12px', color: 'var(--text-main)', fontWeight: 500 }}>

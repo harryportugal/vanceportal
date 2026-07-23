@@ -152,10 +152,12 @@ export default function ProjetoOnline() {
         <div style={{
           flex: 1,
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           padding: device === 'desktop' ? '0' : '24px',
-          overflow: 'auto'
+          overflow: 'auto',
+          position: 'relative'
         }}>
           <iframe
             key={activeUrl}
