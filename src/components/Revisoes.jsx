@@ -61,11 +61,11 @@ export default function Revisoes() {
                     <h3 style={{ fontSize: '15px', color: 'var(--text-main)', margin: 0 }}>{rev.title}</h3>
                     {getStatusBadge(rev.status)}
                   </div>
-                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: 0 }}>{rev.description}</p>
+                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: 0 }}>{rev.desc || rev.description}</p>
                 </div>
 
                 <div style={{ fontSize: '11px', color: 'var(--text-subtle)' }}>
-                  {rev.date} • Por {rev.author}
+                  Solicitado em {rev.requestedAt || rev.date || 'Recente'}
                 </div>
               </div>
 

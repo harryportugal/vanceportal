@@ -18,7 +18,17 @@ export default function Pagamentos() {
   };
 
   const handleCopyPix = () => {
-    navigator.clipboard.writeText('00020126580014BR.GOV.BCB.PIX0136vancegroup-pix-key-9921382520450000053039865802BR5911VANCE GROUP6009SAO PAULO620705031236304E67C');
+    const pixCode = '00020126580014BR.GOV.BCB.PIX0136vancegroup-pix-key-9921382520450000053039865802BR5911VANCE GROUP6009SAO PAULO620705031236304E67C';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(pixCode).catch(() => {});
+    } else {
+      const el = document.createElement('textarea');
+      el.value = pixCode;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    }
     setCopiedPix(true);
     setTimeout(() => setCopiedPix(false), 2000);
   };
