@@ -13,27 +13,22 @@ export function ProjectProvider({ children }) {
   // PROJECT CORE METRICS & BRANDING - DEFAULT HARRYPORTUGAL.COM / PORTFOLIO
   const [project, setProject] = useState(() => {
     const saved = localStorage.getItem('vance_project');
-    let parsed = null;
     if (saved) {
-      try { parsed = JSON.parse(saved); } catch (e) {}
+      try { return JSON.parse(saved); } catch (e) {}
     }
-
-    if (!parsed || !parsed.stagingUrl || parsed.stagingUrl.includes('vancegroup.com') || parsed.stagingUrl.includes('clinica-alpha')) {
-      return {
-        id: 'proj-001',
-        name: 'Website Portfolio — Harry Portugal',
-        clientCompany: 'Harry Portugal Studio',
-        clientName: 'Harry Portugal',
-        clientEmail: 'contato@harryportugal.com',
-        status: 'Desenvolvimento',
-        progress: 72,
-        lastUpdate: 'Hoje às 11:20 pela Vance Studio',
-        targetDate: '15/08/2026',
-        nextStep: 'Integração de animações & otimização de performance',
-        stagingUrl: 'https://harryportugal.com'
-      };
-    }
-    return parsed;
+    return {
+      id: 'proj-001',
+      name: 'Website Portfolio — Harry Portugal',
+      clientCompany: 'Harry Portugal Studio',
+      clientName: 'Harry Portugal',
+      clientEmail: 'contato@harryportugal.com',
+      status: 'Desenvolvimento',
+      progress: 72,
+      lastUpdate: 'Hoje às 11:20 pela Vance Studio',
+      targetDate: '15/08/2026',
+      nextStep: 'Integração de animações & otimização de performance',
+      stagingUrl: 'https://harryportugal.com'
+    };
   });
 
   // TIMELINE STAGES
@@ -53,23 +48,18 @@ export function ProjectProvider({ children }) {
   // CLEAN PROFESSIONAL CHECKLIST ITEMS
   const [checklist, setChecklist] = useState(() => {
     const saved = localStorage.getItem('vance_checklist');
-    let parsed = null;
     if (saved) {
-      try { parsed = JSON.parse(saved); } catch (e) {}
+      try { return JSON.parse(saved); } catch (e) {}
     }
-
-    if (!parsed || parsed.some(item => item.title.includes('Comerbosta'))) {
-      return [
-        { id: 1, title: 'Enviar logotipo vetorizado (SVG ou EPS)', completed: true, category: 'Logos' },
-        { id: 2, title: 'Enviar biografia e textos institucionais', completed: true, category: 'Textos' },
-        { id: 3, title: 'Enviar fotos em alta resolução dos projetos', completed: true, category: 'Imagens' },
-        { id: 4, title: 'Aprovar guia de estilo e paleta de cores', completed: true, category: 'Design' },
-        { id: 5, title: 'Fornecer credenciais de acesso ao servidor/domínio', completed: false, category: 'Publicação' },
-        { id: 6, title: 'Aprovar testes de responsividade em staging', completed: false, category: 'Geral' },
-        { id: 7, title: 'Quitação da parcela final', completed: false, category: 'Financeiro' }
-      ];
-    }
-    return parsed;
+    return [
+      { id: 1, title: 'Enviar logotipo vetorizado (SVG ou EPS)', completed: true, category: 'Logos' },
+      { id: 2, title: 'Enviar biografia e textos institucionais', completed: true, category: 'Textos' },
+      { id: 3, title: 'Enviar fotos em alta resolução dos projetos', completed: true, category: 'Imagens' },
+      { id: 4, title: 'Aprovar guia de estilo e paleta de cores', completed: true, category: 'Design' },
+      { id: 5, title: 'Fornecer credenciais de acesso ao servidor/domínio', completed: false, category: 'Publicação' },
+      { id: 6, title: 'Aprovar testes de responsividade em staging', completed: false, category: 'Geral' },
+      { id: 7, title: 'Quitação da parcela final', completed: false, category: 'Financeiro' }
+    ];
   });
 
   // FILES
@@ -212,22 +202,6 @@ export function ProjectProvider({ children }) {
       time: 'Agora'
     };
     setMessages(prev => [...prev, newMsg]);
-
-    if (currentUserRole === 'client') {
-      setTimeout(() => {
-        setMessages(prev => [
-          ...prev,
-          {
-            id: Date.now() + 1,
-            sender: 'Atendimento Vance Studio',
-            avatar: 'VG',
-            role: 'agency',
-            text: 'Mensagem recebida! Nossa equipe de especialistas já está analisando e responderá em breve.',
-            time: 'Agora'
-          }
-        ]);
-      }, 1000);
-    }
   };
 
   const addHistoryLog = (title, desc) => {

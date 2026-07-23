@@ -17,7 +17,7 @@ import Perfil from './components/Perfil';
 import AdminPanel from './components/AdminPanel';
 
 function MainApp() {
-  const { isAuthenticated, activeTab } = useProject();
+  const { isAuthenticated, activeTab, currentUserRole } = useProject();
 
   if (!isAuthenticated) {
     return <Login />;
@@ -36,7 +36,7 @@ function MainApp() {
       case 'suporte': return <Suporte />;
       case 'historico': return <Historico />;
       case 'perfil': return <Perfil />;
-      case 'admin-panel': return <AdminPanel />;
+      case 'admin-panel': return currentUserRole === 'admin' ? <AdminPanel /> : <Dashboard />;
       default: return <Dashboard />;
     }
   };
